@@ -1,29 +1,33 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div class="title">
+      <router-link to="/">Game highlights</router-link>
+    </div>
+    <div class="search-bar">
+      <input type="search"/>
+    </div>
+    <div class="authentication">
+      <router-link id="login" to="/">Login</router-link>
+      <router-link id="register" to="/register">Register</router-link>
+    </div>
   </div>
   <router-view/>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 #nav {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
   padding: 30px;
 }
-
+#login {
+  margin-right: 15px;
+}
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
 }
