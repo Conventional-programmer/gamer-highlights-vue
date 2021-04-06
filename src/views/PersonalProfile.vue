@@ -1,6 +1,7 @@
 <template>
   <div>
-
+    <BaseProfile></BaseProfile>
+    <PostsComponent></PostsComponent>
   </div>
 </template>
 

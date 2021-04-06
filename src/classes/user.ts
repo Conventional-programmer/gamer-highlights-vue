@@ -1,8 +1,9 @@
 export default class User {
     private  id: number
+    private _imageUrl:string
     private _username: string
     private _password: string
-
+    private _description: string
 
     get username(): string {
         return this._username;
@@ -18,5 +19,21 @@ export default class User {
 
     set password(value: string) {
         this._password = value;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    set description(value: string) {
+        this._description = value;
+    }
+
+    get imageUrl(): string {
+        return this._imageUrl;
+    }
+
+    set imageUrl(value: string) {
+        this._imageUrl = value;
     }
 }
