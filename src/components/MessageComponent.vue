@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <form>
 
-    </form>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "RegisterPage"
+  name: "MessageComponent"
 }
 </script>
 
