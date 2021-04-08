@@ -15,12 +15,12 @@ export default {
   {
     //as user?
     return {
-      user: { username:'', password:''}
+      user: { username:'', password:''} as User
     };
   },
   methods:{
     handleLogin(): void {
-
+      console.log('bert');
     }
   }
 }

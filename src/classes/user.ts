@@ -1,12 +1,12 @@
 export default class User {
-    private  id: number
-    private _imageUrl:string
-    private _username: string
-    private _password: string
-    private _description: string
+    private  id?: number
+    private _imageUrl?: string
+    private _username?: string
+    private _password?: string
+    private _description?: string
 
     get username(): string {
-        return this._username;
+        return this._username!;
     }
 
     set username(value: string) {
@@ -14,7 +14,7 @@ export default class User {
     }
 
     get password(): string {
-        return this._password;
+        return this._password!;
     }
 
     set password(value: string) {
@@ -22,7 +22,7 @@ export default class User {
     }
 
     get description(): string {
-        return this._description;
+        return this._description!;
     }
 
     set description(value: string) {
@@ -30,7 +30,7 @@ export default class User {
     }
 
     get imageUrl(): string {
-        return this._imageUrl;
+        return this._imageUrl!;
     }
 
     set imageUrl(value: string) {

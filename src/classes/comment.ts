@@ -3,7 +3,13 @@ import User from "@/classes/user";
 export class Comment {
     private _id: number;
     private _message: string;
-    private _user: User;
+    private _user?: User;
+
+
+    constructor() {
+        this._id = 0;
+        this._message = '';
+    }
 
     get id(): number {
         return this._id;
@@ -22,7 +28,7 @@ export class Comment {
     }
 
     get user(): User {
-        return this._user;
+        return this._user!;
     }
 
     set user(value: User) {

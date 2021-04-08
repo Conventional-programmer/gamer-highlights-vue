@@ -1,13 +1,20 @@
 <template>
-  <p v-for="user in this.users">{{user.username}}</p>
+  <div>
+    <p v-for="user in this.users">{{user.username}}</p>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
+import User from "../classes/user";
+
 export default {
   name: "SearchComponent",
-  data: {
-    return: {
-      users: [];
+  data(): {
+    users: User[];
+  }
+  {
+    return {
+      users: []
     }
   }
 }

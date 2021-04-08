@@ -13,7 +13,9 @@ export default {
   name: "PostsComponent",
   components: {PostComponent},
   props: {
-    posts: Post[];
+    posts: {
+      type: Array.of(Post)
+    }
   }
 }
 </script>

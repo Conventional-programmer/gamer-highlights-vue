@@ -6,20 +6,20 @@
 </template>
 
 <script lang="ts">
-import PostsComponent from "../components/PostsComponent";
-import BaseProfile from "../components/BaseProfile";
 import User from "../classes/user";
 import Post from "../classes/post";
+import BaseProfile from "@/components/BaseProfile.vue";
+import PostsComponent from "@/components/PostsComponent.vue";
 export default {
   name: "Profile",
   components: {BaseProfile, PostsComponent},
   data(): {
-    user: User,
+    user: User;
     posts: Post[];
   }
   {
     return {
-      user:{},
+      user: {} as User,
       posts: []
     }
   }

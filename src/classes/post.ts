@@ -2,11 +2,19 @@ import User from "@/classes/user";
 
 export default class Post {
     private _id: number
-    private _postingUser: User
+    private _postingUser?: User
     private _imageUrl: string
     private _description: string
-    private _commentDtos: Comment[]
+    private _commentDtos?: Comment[]
     private _likes: number
+
+
+    constructor() {
+        this._id= 0;
+        this._imageUrl = '';
+        this._description = '';
+        this._likes = 0;
+    }
 
     get id(): number {
         return this._id;
@@ -17,7 +25,7 @@ export default class Post {
     }
 
     get postingUser(): User {
-        return this._postingUser;
+        return this._postingUser!;
     }
 
     set postingUser(value: User) {
@@ -41,7 +49,7 @@ export default class Post {
     }
 
     get commentDtos(): Comment[] {
-        return this._commentDtos;
+        return this._commentDtos!;
     }
 
     set commentDtos(value: Comment[]) {
