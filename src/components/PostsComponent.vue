@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PostComponent v-for="post in posts" v-bind:post-id="post.id()" v-bind:image-url="post.imageUrl()">
+    <PostComponent v-bind:key="post.id" v-for="post in posts" v-bind:post-id="post.id()" v-bind:image-url="post.imageUrl()">
     </PostComponent>
   </div>
 </template>
