@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import User from "../classes/user";
+import User from "../class/user";
 
 export default {
   name: "SearchComponent",

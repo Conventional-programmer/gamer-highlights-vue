@@ -1,14 +1,15 @@
-import User from "@/classes/user";
+import User from "@/class/user";
 
-export class Comment {
+export default class PostComment {
     private _id: number;
     private _message: string;
     private _user?: User;
 
 
-    constructor() {
-        this._id = 0;
-        this._message = '';
+    constructor(id: number, message: string, user: User) {
+        this._id = id;
+        this._message = message;
+        this._user = user;
     }
 
     get id(): number {

@@ -7,6 +7,7 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "noImplicitAny": false,
+    "noImplicitThis": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

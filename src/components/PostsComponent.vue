@@ -1,12 +1,12 @@
 <template>
   <div>
-    <PostComponent v-bind:key="post.id" v-for="post in posts" v-bind:post-id="post.id()" v-bind:image-url="post.imageUrl()">
+    <PostComponent v-bind:key="post.id" v-for="post in posts" v-bind:post-id="post.id" v-bind:image-url="post.imageUrl">
     </PostComponent>
   </div>
 </template>
 
 <script lang="ts">
-import Post from "../classes/post";
+import Post from "../class/post";
 import PostComponent from "@/components/PostComponent.vue";
 
 export default {

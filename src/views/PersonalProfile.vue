@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import User from "../classes/user";
-import Post from "../classes/post";
+import User from "../class/user";
+import Post from "../class/post";
 import BaseProfile from "../components/BaseProfile.vue";
 import PostsComponent from "../components/PostsComponent.vue";
 
