@@ -4,6 +4,8 @@ stages:
   - deploy
 
 deploy-gamehighlights-frontend:
+  image:
+    name: docker:latest
   stage: deploy
   script:
     - docker build . -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE_PREFIX/family-planner:latest"
