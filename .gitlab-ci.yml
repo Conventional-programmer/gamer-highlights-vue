@@ -14,10 +14,10 @@ deploy-gamehighlights-frontend:
 build-gamehighlights-frontend:
   stage: build
   script:
-   - npm install
-   - npm run serve
+   - yarn install
+   - yarn run build
 test-gamehighlights-frontend:
   stage: test
   script:
-   - npm install
-   - npm run test
+   - yarn install
+   - yarn run test:unit
