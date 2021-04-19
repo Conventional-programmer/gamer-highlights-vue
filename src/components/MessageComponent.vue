@@ -13,9 +13,6 @@ export default defineComponent( {
   name: "MessageComponent",
   props: {
     messages: Array
-  },
-  mounted() {
-
   }
 })
 </script>
