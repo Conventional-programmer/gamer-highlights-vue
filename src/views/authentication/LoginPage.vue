@@ -1,9 +1,10 @@
 <template>
-    <form @submit.prevent="handleLogin" id="login">
+    <form @submit.prevent="handleLogin" class="forum">
       <input type="email" placeholder="e-mail" v-model="user.username">
       <input type="password" placeholder="password" v-model="user.password">
       <button class="submitButton" type="submit">login</button>
     </form>
+    <p v-if="message">{{message}}</p>
 </template>
 
 <script lang="ts">
@@ -25,51 +26,36 @@ export default defineComponent({
     };
   },
   computed:{
-    /*loggedIn(): boolean {
+    loggedIn(): boolean {
       return this.$store.state.authentication.status.loggedIn;
-    }*/
+    }
   },
   created() {
-    /*if (this.loggedIn) {
+    if (this.loggedIn) {
       this.$router.push('/profile');
-    }*/
+    }
   },
   methods:{
     handleLogin(): void {
-      console.log("login");
       this.loading = true;
       if (this.user.username && this.user.password) {
-          console.log('authentication');
-          /*this.$store.dispatch('authentication/login', this.user).then(
-              () => {
-                this.$router.push('/profile');
-              },
-              error => {
-                this.loading = false;
-                this.message =
-                    (error.response && error.response.data) ||
-                    error.message ||
-                    error.toString();
-              }
-          );*/
+        this.$store.dispatch('authentication/login', this.user).then(
+            () => {
+              this.$router.push('/profile');
+            },
+            error => {
+              this.loading = false;
+              this.message =
+                  (error.response && error.response.data) ||
+                  error.message ||
+                  error.toString();
+            }
+        );
       }
     }
   }
 })
 </script>
+<style scoped src="@/assets/css/forum.css">
 
-<style scoped>
-  #login{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-  input{
-    width: 25%;
-    margin: 5px;
-  }
-  .submitButton{
-    width: 12.5%;
-    margin: 5px;
-  }
 </style>

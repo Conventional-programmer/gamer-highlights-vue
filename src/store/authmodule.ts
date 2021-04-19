@@ -10,16 +10,16 @@ export const authentication: Module<any,any> = {
     state: initialState,
     actions: {
         login({ commit }, user) {
-            AuthService.login(user).then(
+            return AuthService.login(user).then(
                 user => {
-                    commit("loginSuccess",user)
-                    return Promise.resolve(user)
+                    commit('loginSuccess', user);
+                    return Promise.resolve(user);
                 },
                 error => {
-                    commit("loginFailure");
-                    return Promise.resolve(error);
+                    commit('loginFailure');
+                    return Promise.reject(error);
                 }
-            )
+            );
         },
         logout({ commit }) {
             localStorage.removeItem('user')
@@ -33,7 +33,7 @@ export const authentication: Module<any,any> = {
                 },
                 error => {
                     commit("registerFailure");
-                    return Promise.resolve(error);
+                    return Promise.reject(error);
                 }
             )
         }

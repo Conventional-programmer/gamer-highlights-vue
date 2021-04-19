@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:9000/gamefriend/api/auth/';
+const API_URL = 'http://localhost:9000/game-highlights/api/auth/';
 
 class AuthService {
     login(user) {
@@ -13,7 +13,7 @@ class AuthService {
                 if (response.data.accessToken) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                 }
-
+                console.log(response);
                 return response.data;
             });
     }

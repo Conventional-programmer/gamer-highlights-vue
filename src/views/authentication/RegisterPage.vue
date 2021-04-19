@@ -1,10 +1,10 @@
 <template>
   <div>
-    <form id="" @submit.prevent="registerAccount">
+    <form id="" @submit.prevent="registerAccount" class="forum">
       <input type="text" name="username" placeholder="username">
       <input type="email" name="username" placeholder="e-mail">
       <input type="password" name="password" placeholder="password">
-      <button type="submit">register</button>
+      <button type="submit" class="submitButton">register</button>
     </form>
   </div>
 </template>
@@ -20,9 +20,6 @@ export default {
   }
 }
 </script>
+<style scoped src="@/assets/css/forum.css">
 
-<style scoped>
-  #register{
-
-  }
 </style>

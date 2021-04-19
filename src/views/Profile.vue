@@ -10,7 +10,10 @@ import User from "../class/user";
 import Post from "../class/post";
 import BaseProfile from "@/components/BaseProfile.vue";
 import PostsComponent from "@/components/PostsComponent.vue";
-export default {
+import PostService from "@/service/post-service";
+import UserService from "@/service/user-service"
+import {defineComponent} from "vue";
+export default defineComponent({
   name: "Profile",
   components: {BaseProfile, PostsComponent},
   data(): {
@@ -22,8 +25,16 @@ export default {
       user: {} as User,
       posts: []
     }
+  },
+  mounted() {
+    UserService.getById(this.$store.state.authentication.user.id!).then(user => {
+      this.user = user;
+    })
+    PostService.getAllByUserId(this.$store.state.authentication.user.id!).then(posts => {
+        this.posts = posts;
+    })
   }
-}
+})
 </script>
 
 <style scoped>

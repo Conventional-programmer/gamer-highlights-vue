@@ -1,5 +1,5 @@
 export default class User {
-    private  id?: number
+    public id?: number
     private _imageUrl?: string
     private _username?: string
     private _password?: string
