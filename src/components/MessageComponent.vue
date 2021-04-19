@@ -15,7 +15,7 @@ export default defineComponent( {
     messages: Array
   },
   mounted() {
-      console.log(this.messages);
+
   }
 })
 </script>
