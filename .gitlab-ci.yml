@@ -8,7 +8,7 @@ deploy-gamehighlights-frontend:
     name: docker:latest
   stage: deploy
   script:
-    - docker build . -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE_PREFIX/family-planner:latest"
+    - docker build . -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:latest"
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push --all-tags "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue"
   only:
