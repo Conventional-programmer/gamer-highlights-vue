@@ -20,4 +20,4 @@ test-gamehighlights-frontend:
   stage: test
   script:
    - yarn install
-   - yarn run test
+   - yarn run test:unit
