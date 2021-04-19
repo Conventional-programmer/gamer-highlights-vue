@@ -15,7 +15,7 @@ build-gamehighlights-frontend:
   stage: build
   script:
    - yarn install
-   - yarn run serve
+   - yarn run build
 test-gamehighlights-frontend:
   stage: test
   script:
