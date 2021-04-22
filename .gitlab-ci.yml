@@ -14,11 +14,15 @@ deploy-gamehighlights-frontend:
   only:
     - main
 build-gamehighlights-frontend:
+  image:
+    name: node:latest
   stage: build
   script:
    - yarn install
    - yarn run build
 test-gamehighlights-frontend:
+  image:
+    name: node:latest
   stage: test
   script:
    - yarn install
