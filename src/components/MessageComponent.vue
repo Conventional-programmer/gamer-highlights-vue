@@ -1,9 +1,10 @@
 <template>
   <div class="messages">
     <h2>comments</h2>
-    <p v-bind:key="comment.id" v-for="comment in messages">
-      {{comment.message}}
-    </p>
+    <div v-bind:key="comment.id" v-for="comment in messages">
+      <p>{{comment.message}}</p>
+      <p>{{comment.user.username}}</p>
+    </div>
   </div>
 </template>
 
@@ -12,7 +13,9 @@ import {defineComponent} from "vue";
 export default defineComponent( {
   name: "MessageComponent",
   props: {
-    messages: Array
+    messages: {
+      type: Array
+    }
   }
 })
 </script>
