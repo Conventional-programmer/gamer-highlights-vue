@@ -27,7 +27,7 @@ test-gamehighlights-frontend:
   script:
    - yarn install
    - yarn run test:unit
-sonarqube-check:
+sonarqube-gamehighlights-frontend:
   image:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [""]
@@ -39,7 +39,7 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script:
-    - sonar-scanner -Dsonar.qualitygate.wait=true
+    - sonar-scanner -Dsonar.projectKey=gamer-hightlights-vue -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=a142e27f4175e2dc1da87b4c7022b1b4d6e08596
   allow_failure: true
   only:
     - merge_requests
