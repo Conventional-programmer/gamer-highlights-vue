@@ -1,4 +1,5 @@
-
+include:
+  - template: DAST.gitlab-ci.yml
 stages:
   - analysis
   - build
@@ -16,6 +17,13 @@ deploy-gamehighlights-frontend:
     - docker push --all-tags "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue"
   only:
     - main
+services: # use services to link your app container to the dast job
+  - name: game-highlights-vue:$CI_COMMIT_REF_SLUG
+    alias: yourapp
+
+variables:
+  DAST_FULL_SCAN_ENABLED: "true" # do a full scan
+  DAST_ZAP_USE_AJAX_SPIDER: "true" # use the ajax spider
 build-gamehighlights-frontend:
   image:
     name: node:latest
