@@ -1,25 +1,59 @@
+include:
+  - template: DAST.gitlab-ci.yml
 stages:
+  - analysis
   - build
   - test
   - deploy
+  - dast
 
 deploy-gamehighlights-frontend:
   image:
     name: docker:latest
   stage: deploy
   script:
-    - docker build . -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE_PREFIX/family-planner:latest"
+    - docker build . -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:$CI_COMMIT_REF_SLUG" -t "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue:latest"
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker push --all-tags "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue"
   only:
     - main
+services: # use services to link your app container to the dast job
+  - name: game-highlights-vue:$CI_COMMIT_REF_SLUG
+    alias: yourapp
+
+variables:
+  DAST_FULL_SCAN_ENABLED: "true" # do a full scan
+  DAST_ZAP_USE_AJAX_SPIDER: "true" # use the ajax spider
 build-gamehighlights-frontend:
+  image:
+    name: node:latest
   stage: build
   script:
    - yarn install
    - yarn run build
 test-gamehighlights-frontend:
+  image:
+    name: node:latest
   stage: test
   script:
    - yarn install
    - yarn run test:unit
+sonarqube-gamehighlights-frontend:
+  stage: analysis
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner -Dsonar.projectKey=gamer-hightlights-vue -Dsonar.sources=. -Dsonar.host.url=http://host.docker.internal:9000 -Dsonar.login=a142e27f4175e2dc1da87b4c7022b1b4d6e08596
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+    - develop
