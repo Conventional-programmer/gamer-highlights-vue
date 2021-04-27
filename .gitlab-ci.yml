@@ -1,10 +1,8 @@
-
 stages:
   - analysis
   - build
   - test
   - deploy
-  - dast
 
 deploy-gamehighlights-frontend:
   image:
