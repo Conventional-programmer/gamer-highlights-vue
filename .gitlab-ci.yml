@@ -54,7 +54,7 @@ container_scanning:
     - apk add --no-cache git
     - docker login -u "$CI_REGISTRY_USER"  -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY 
     - docker pull $CI_REGISTRY_USER/game-highlights-vue:latest
-    - wget https://github.com/knqyf263/trivy/releases/download/v0.0.13/trivy_0.0.13_Linux-64bit.tar.gz
+    - wget https://github.com/aquasecurity/trivy.git
     - tar zxvf trivy_0.0.13_Linux-64bit.tar.gz
     - ./trivy --exit-code 0 --severity HIGH --quiet $CI_REGISTRY_USER/game-highlights-vue:latest
     - ./trivy --exit-code 1 --severity CRITICAL --quiet $CI_REGISTRY_USER/game-highlights-vue:latest
