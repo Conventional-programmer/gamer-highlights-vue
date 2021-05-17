@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>{{sentence}}</p>
     <BaseProfile v-bind:user="user"></BaseProfile>
     <PostsComponent v-bind:posts="posts"></PostsComponent>
   </div>
@@ -12,6 +13,7 @@ import BaseProfile from "../components/BaseProfile.vue";
 import PostsComponent from "../components/PostsComponent.vue";
 import UserService from "@/service/user-service";
 import PostService from "@/service/post-service";
+import SentenceService from "@/service/sentence-service"
 import {defineComponent} from "vue";
 
 export default defineComponent({
@@ -20,11 +22,13 @@ export default defineComponent({
   data(): {
       user: User;
       posts: Post[];
+      sentence: string;
   }
   {
     return {
       user: {} as User,
-      posts: []
+      posts: [],
+      sentence: ''
     }
   },
   mounted() {
@@ -34,6 +38,9 @@ export default defineComponent({
     PostService.getAllByUserId(this.$store.state.authentication.user.id!).then(posts => {
       this.posts = posts;
     })
+    SentenceService.getRandomSentence().then(((sentence) => {
+       this.sentence = sentence;
+    }))
   }
 })
 </script>
