@@ -32,15 +32,16 @@ export default defineComponent({
     }
   },
   mounted() {
-    SentenceService.getRandomSentence().then((sentence) => {
-      this.sentence = sentence;
-    })
+    // SentenceService.getRandomSentence().then((sentence) => {
+    //   this.sentence = sentence;
+    // });
     UserService.getById(this.$store.state.authentication.user.id!).then(user => {
+      console.log(user);
       this.user = user;
-    })
+    });
     PostService.getAllByUserId(this.$store.state.authentication.user.id!).then(posts => {
       this.posts = posts;
-    })
+    });
 
   }
 })

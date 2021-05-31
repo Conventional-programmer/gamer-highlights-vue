@@ -10,6 +10,7 @@ export default class BaseService<T> {
     getById(id: number): Promise<T>
     {
         return axios.get<T>(this.baseUrl+ id.toString(),{headers: authHeader()}).then((response) =>{
+            console.log(response);
             return response.data;
         });
     }

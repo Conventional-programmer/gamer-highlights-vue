@@ -3,7 +3,7 @@ import User from "@/class/user";
 
 class UserService extends BaseService<User>{
     constructor() {
-        super("http://localhost:9001/game-highlights/api/user/");
+        super("http://localhost/user/");
     }
 }
 export default new UserService();

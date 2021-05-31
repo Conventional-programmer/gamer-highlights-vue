@@ -27,10 +27,10 @@ export default defineComponent({
     }
   },
   mounted() {
-    UserService.getById(this.$store.state.authentication.user.id!).then(user => {
+    UserService.getById(Number(this.$route.params.name!)).then(user => {
       this.user = user;
     })
-    PostService.getAllByUserId(this.$store.state.authentication.user.id!).then(posts => {
+    PostService.getAllByUserId(Number(this.$route.params.name!)).then(posts => {
         this.posts = posts;
     })
   }

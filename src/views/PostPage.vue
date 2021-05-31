@@ -13,13 +13,16 @@
 import Post from "@/class/post";
 import MessageComponent from "@/components/MessageComponent.vue";
 import PostComment from "@/class/postComment";
+import PostService from "@/service/post-service"
 import User from "@/class/user";
 import {defineComponent} from 'vue'
 export default defineComponent({
   name: "PostPage",
   components: {MessageComponent},
   mounted(){
-    console.log(this.post.comments);
+    PostService.getById(Number(this.$route.params.id)).then((post) => {
+      this.post = post;
+    });
   },
   data(): {
     post: Post;
