@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="handleLogin" class="forum">
-      <input type="email" placeholder="e-mail" v-model="user.username">
-      <input type="password" placeholder="password" v-model="user.password">
+      <input id="email" type="email" placeholder="e-mail" v-model="user.username">
+      <input id="password" type="password" placeholder="password" v-model="user.password">
       <button class="submitButton" type="submit">login</button>
     </form>
     <p v-if="message">{{message}}</p>
