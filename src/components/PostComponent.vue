@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name:'post',params:{id:postId}}">
+  <router-link :to="{name:'Post',params:{id:postId}}">
     <img v-bind:src="imageUrl">
   </router-link>
 </template>

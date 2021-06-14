@@ -28,6 +28,9 @@
         this.$store.dispatch('authentication/logout');
         this.$router.push('/login')
       }
+    },
+    created() {
+      console.log(process.env.API_URL);
     }
   })
 </script>
