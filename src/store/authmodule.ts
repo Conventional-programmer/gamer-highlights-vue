@@ -25,8 +25,8 @@ export const authentication: Module<any,any> = {
             localStorage.removeItem('user')
             commit('logout');
         },
-        register({ commit }, user) {
-            AuthService.register(user).then(
+        register({ commit }, {user,token}) {
+            AuthService.register(user,token).then(
                 user => {
                     commit("registerSuccess",user)
                     return Promise.resolve(user)

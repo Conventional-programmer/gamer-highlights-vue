@@ -1,7 +1,8 @@
 export default class User {
     public id?: number
-    private _imageUrl?: string
     private _username?: string
+    private _email?: string
+    private _imageUrl?: string
     private _password?: string
     private _description?: string
 
@@ -35,5 +36,12 @@ export default class User {
 
     set imageUrl(value: string) {
         this._imageUrl = value;
+    }
+    get email(): string {
+        return this._email!;
+    }
+    set email(value:string)
+    {
+        this._email = value;
     }
 }
