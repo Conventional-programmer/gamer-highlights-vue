@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import authHeader from "@/service/auth-header";
+import authHeader from "./authentication/auth-header";
 
 export default class BaseService<T> {
     baseUrl: string;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-bind:src="user.imageUrl"/>
+    <img v-if="user" v-bind:src="user.imageUrl"/>
     <p>
       {{user.username}}
     </p>
@@ -12,19 +12,16 @@
 
 <script lang="ts">
 import User from "../class/user";
+import TokenService from "@/service/authentication/token.service"
+import {defineComponent} from "vue";
+import { toRefs } from 'vue'
 
-export default {
+export default defineComponent({
   name: "BaseProfile",
   props:{
-    user: {
-      type: Object as () => User,
-      validator: function (value) {
-        // The value ust match one of these strings
-        return typeof(value.username) === "string"&& typeof(value.description) == "string";
-      }
-    }
+    user: User
   }
-}
+})
 </script>
 
 <style scoped>

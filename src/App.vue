@@ -16,6 +16,7 @@
 </template>
 <script lang="ts">
   import {defineComponent} from "vue";
+  import tokenService from "@/service/authentication/token.service";
   export default defineComponent({
     computed: {
       currentUser()
