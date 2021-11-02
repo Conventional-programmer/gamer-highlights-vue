@@ -31,6 +31,12 @@ class AuthService {
             token: recaptchaToken
         });
     }
+    refreshToken(refreshToken: string)
+    {
+        return axios.post(API_URL + 'refreshtoken', {
+            refreshToken: refreshToken
+        });
+    }
 }
 
 export default new AuthService();
