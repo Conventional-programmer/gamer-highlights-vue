@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import User from "../class/user";
-import TokenService from "@/service/authentication/token.service"
 import {defineComponent} from "vue";
 import { toRefs } from 'vue'
 
