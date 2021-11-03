@@ -27,7 +27,7 @@ module.exports ={
         'jest-serializer-vue'
     ],
     // https://github.com/facebook/jest/issues/6766
-    testURL: 'http://localhost:8080/',
+    testURL: 'https://localhost:8080/',
     watchPlugins: [
         require.resolve('jest-watch-typeahead/filename'),
         require.resolve('jest-watch-typeahead/testname')
@@ -39,3 +39,4 @@ module.exports ={
         }
     }
 }
+
