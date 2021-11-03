@@ -14,20 +14,20 @@ deploy-gamehighlights-frontend:
     - docker push --all-tags "$CI_REGISTRY_IMAGE_PREFIX/game-highlights-vue"
   only:
     - main
-build-gamehighlights-frontend:
-  image:
-    name: node:latest
-  stage: build
-  script:
-   - yarn install
-   - yarn run build
-test-gamehighlights-frontend:
-  image:
-    name: node:latest
-  stage: test
-  script:
-   - yarn install
-   - yarn run test:unit
+# build-gamehighlights-frontend:
+#   image:
+#     name: node:latest
+#   stage: build
+#   script:
+#    - yarn install
+#    - yarn run build
+# test-gamehighlights-frontend:
+#   image:
+#     name: node:latest
+#   stage: test
+#   script:
+#    - yarn install
+#    - yarn run test:unit
 # sonarqube-gamehighlights-frontend:
 #   stage: analysis
 #   image:
