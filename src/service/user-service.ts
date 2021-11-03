@@ -3,7 +3,7 @@ import User from "@/class/user";
 
 class UserService extends BaseService<User>{
     constructor() {
-        super("http://localhost/user/");
+        super("https://localhost/user/");
     }
 }
 export default new UserService();

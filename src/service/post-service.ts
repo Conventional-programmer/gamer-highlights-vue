@@ -4,7 +4,7 @@ import Post from "@/class/post";
 
 class PostService extends BaseService<Post>{
     constructor() {
-        super("http://localhost/post/");
+        super("https://localhost/post/");
     }
     getAllByUserId(id: number): Promise<Post[]> {
         return axios.get<Post[]>(this.baseUrl+"user/"+id.toString()).then((response) => {

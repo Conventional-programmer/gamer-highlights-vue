@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { VueReCaptcha ,useReCaptcha} from 'vue-recaptcha-v3'
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 import App from './App.vue'
 import router from './router'
 import store from './store'
