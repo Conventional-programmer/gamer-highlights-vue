@@ -3,7 +3,8 @@ import User from "@/class/user";
 
 class UserService extends BaseService<User>{
     constructor() {
-        super("https://localhost:8080/user/");
+        const baseUrl = process.env.VUE_APP_BASE_URL;
+        super(baseUrl+"/user/");
     }
 }
 export default new UserService();
