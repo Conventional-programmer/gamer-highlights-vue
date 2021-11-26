@@ -8,16 +8,6 @@ export default class Post {
     private _comments?: PostComment[]
     private _likes?: number
 
-
-    constructor(id: number, postingUser: User, imageUrl: string, description: string, comments: PostComment[], likes: number) {
-        this._id = id;
-        this._postingUser = postingUser;
-        this._imageUrl = imageUrl;
-        this._description = description;
-        this._comments = comments;
-        this._likes = likes;
-    }
-
     get id(): number {
         return this._id!;
     }

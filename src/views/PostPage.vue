@@ -29,7 +29,7 @@ export default defineComponent({
   {
     //as user?
     return {
-      post: new Post(0,{ username: '', description:'',imageUrl:''} as User,'','',[],0) as Post
+      post: {id : 0, postingUser :{ username: '', description:'',imageUrl:''} as User,description:'',imageUrl:'',comments:[],likes:0} as Post
     };
   },
 })
