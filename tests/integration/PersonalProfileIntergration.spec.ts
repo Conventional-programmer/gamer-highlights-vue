@@ -11,7 +11,7 @@ div.id = 'root'
 document.body.appendChild(div);
 //user
 const user = new User();
-user.id = 1;
+user.userId = 1;
 user.username = "bert";
 user.description = "koekjes";
 user.password = "Gert123";

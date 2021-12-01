@@ -22,13 +22,13 @@ export default class BaseService<T> {
     }
     post(object: T): Promise<AxiosResponse>
     {
-        return axios.post(this.baseUrl,{headers: authHeader()}).then(response => {
+        return axios.post(this.baseUrl,object,{headers: authHeader()}).then(response => {
             return response
         });
     }
     put(object: T): Promise<AxiosResponse>
     {
-        return axios.put(this.baseUrl,{headers: authHeader()}).then(response => {
+        return axios.put(this.baseUrl,object,{headers: authHeader()}).then(response => {
             return response
         });
     }

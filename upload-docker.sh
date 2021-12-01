@@ -1,0 +1,1 @@
+docker build -t caskamp/game-highlights-vue:latest . && docker push caskamp/game-highlights-vue:latest && docker build -t caskamp/game-highlights-vue:main . && docker push caskamp/game-highlights-vue:main

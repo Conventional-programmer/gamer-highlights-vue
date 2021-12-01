@@ -1,5 +1,5 @@
 export default class User {
-    public id?: number
+    public userId?: number
     private _username?: string
     private _email?: string
     private _imageUrl?: string

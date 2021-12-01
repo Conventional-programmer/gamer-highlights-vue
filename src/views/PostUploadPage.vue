@@ -16,8 +16,8 @@
     import { ref } from 'vue'
     const store = useStore();
     const image = ref('');
-    const post = ref({id: 0,postingUser :{ id:0, username: '', description:'',imageUrl:''} as User,description:'',imageUrl:'',comments:[] ,likes:0} as Post)
-    post.value.postingUser.id = store.state.authentication.user.id;
+    const post = ref({postingUser :{ userId:0, username: '', description:'',imageUrl:''} as User,description:'',imageUrl:'',comments:[] ,likes:[]} as Post)
+    post.value.postingUser.userId = store.state.authentication.user.userId;
     const uploadPost = async() => {
         ImageService.uploadImage(image.value).then((url) => {
             post.value.imageUrl = url;
@@ -29,8 +29,7 @@
     }
     const imageChange = async(event) => {
         image.value = event.target.files[0];
-    }
-    
+    } 
 </script>
 <style scoped>
     

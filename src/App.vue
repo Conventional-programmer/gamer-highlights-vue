@@ -9,6 +9,7 @@
     <div class="authentication">
       <router-link v-if="!currentUser" id="login" to="/">Login</router-link>
       <router-link v-if="!currentUser" id="register" to="/register">Register</router-link>
+      <router-link v-if="currentUser" id="upload post" to="/post-upload">Upload image</router-link>
       <a v-if="currentUser" @click.prevent="logout">Logout</a>
     </div>
   </div>
@@ -42,11 +43,9 @@
   flex-flow: row nowrap;
   padding: 30px;
 }
-#login {
-  margin-right: 15px;
-}
 #nav a {
   font-weight: bold;
+  margin-right: 15px;
   color: #2c3e50;
 }
 #nav a.router-link-exact-active {

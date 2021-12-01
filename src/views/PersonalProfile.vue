@@ -13,7 +13,6 @@ import BaseProfile from "../components/BaseProfile.vue";
 import PostsComponent from "../components/PostsComponent.vue";
 import UserService from "@/service/user-service";
 import PostService from "@/service/post-service";
-import SentenceService from "@/service/sentence-service"
 import {defineComponent} from "vue";
 
 export default defineComponent({
@@ -35,11 +34,11 @@ export default defineComponent({
     // SentenceService.getRandomSentence().then((sentence) => {
     //   this.sentence = sentence;
     // });
-    UserService.getById(this.$store.state.authentication.user.id!).then(user => {
+    UserService.getById(this.$store.state.authentication.user.userId!).then(user => {
       console.log(user);
       this.user = user;
     });
-    PostService.getAllByUserId(this.$store.state.authentication.user.id!).then(posts => {
+    PostService.getAllByUserId(this.$store.state.authentication.user.userId!).then(posts => {
       this.posts = posts;
     });
 

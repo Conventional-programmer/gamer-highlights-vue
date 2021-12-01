@@ -1,12 +1,13 @@
 import User from "@/class/user";
 import PostComment from "@/class/postComment";
+import Like from './like';
 export default class Post {
     private _id?: number
     private _postingUser?: User
     private _imageUrl?: string
     private _description?: string
     private _comments?: PostComment[]
-    private _likes?: number
+    private _likes?: Like[] 
 
     get id(): number {
         return this._id!;
@@ -48,11 +49,12 @@ export default class Post {
         this._comments = value;
     }
 
-    get likes(): number {
+    get likes(): Like[]{
         return this._likes!;
     }
 
-    set likes(value: number) {
+    set likes(value: Like[]) {
         this._likes = value;
     }
 }
+
