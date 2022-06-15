@@ -41,7 +41,7 @@ deploy-gamehighlights-frontend:
 #     paths:
 #       - .sonar/cache
 #   script:
-#     - sonar-scanner -Dsonar.projectKey=gamer-hightlights-vue -Dsonar.sources=. -Dsonar.host.url=http://host.docker.internal:9000 -Dsonar.login=a142e27f4175e2dc1da87b4c7022b1b4d6e08596
+#     - sonar-scanner -Dsonar.projectKey=gamer-hightlights-vue -Dsonar.sources=. -Dsonar.host.url=http://host.docker.internal:9000 -Dsonar.login=
 #   allow_failure: true
 #   only:
 #     - merge_requests
